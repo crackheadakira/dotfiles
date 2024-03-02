@@ -2,16 +2,6 @@ local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
-	ensure_installed = {
-		'tsserver',
-		'eslint',
-		'rust_analyzer',
-		'lua_ls',
-	}
-})
-
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({

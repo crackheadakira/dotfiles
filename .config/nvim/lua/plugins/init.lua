@@ -3,5 +3,5 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim', lazy = true } },
     { "rose-pine/neovim", name = "rose-pine" },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    { 'jinh0/eyeliner.nvim' }
+    'jinh0/eyeliner.nvim',
 }
