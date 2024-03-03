@@ -21,5 +21,9 @@ return {
         config = function()
             require("autoclose").setup()
         end,
-    }
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
 }

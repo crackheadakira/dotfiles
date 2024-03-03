@@ -3,9 +3,6 @@ return {
     dependencies = {
         "nvim-telescope/telescope.nvim",
     },
-    keys = {
-        { "<leader>fc", "<CMD>Telescope commander<CR>", mode = "n", desc = "Open commander" }
-    },
     config = function()
         require("commander").setup({
             components = {
