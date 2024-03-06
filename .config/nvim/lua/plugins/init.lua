@@ -31,5 +31,10 @@ return {
         config = function()
             require('neoscroll').setup {}
         end
+    },
+    {
+        'ellisonleao/glow.nvim',
+        config = true,
+        cmd = "Glow"
     }
 }
