@@ -1,7 +1,16 @@
 -- NVim keybinds
-vim.g.mapleader = " "
+vim.g.mapleader = " " -- Space as leader key
 
--- Package manager
+-- NVim config
+vim.o.number = true         -- Show line number
+vim.o.relativenumber = true -- Show relative line number
+vim.o.signcolumn = "number" -- No idea honestly
+vim.o.tabstop = 4           -- A TAB character looks like 4 spaces
+vim.o.expandtab = true      -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.softtabstop = 4       -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4        -- Number of spaces inserted when indenting
+
+-- Install & Initialize lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -14,13 +23,4 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-
--- NVim config
-vim.o.number = true    -- Show line number
-vim.o.tabstop = 4      -- A TAB character looks like 4 spaces
-vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
-vim.o.softtabstop = 4  -- Number of spaces inserted instead of a TAB character
-vim.o.shiftwidth = 4   -- Number of spaces inserted when indenting
-
--- Initialize lazy
 require("lazy").setup("plugins")

@@ -22,7 +22,7 @@ commander.add({
     {
         desc = "Open commander",
         cmd = "<CMD>Telescope commander<CR>",
-        keys = { "n", "<leader>fc" },
+        keys = { "n", "<leader>er" },
         cat = "commander"
     }
 })

@@ -36,5 +36,10 @@ return {
         'ellisonleao/glow.nvim',
         config = true,
         cmd = "Glow"
+    },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
     }
 }
