@@ -23,6 +23,8 @@ bindkey '^[[B' down-line-or-search
         https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
 source ~/Repos/znap/znap.zsh  # Start Znap
 
+znap install zdharma-continuum/fast-syntax-highlighting zsh-users/zsh-autosuggestions
+
 plugins=(
 	git
 	fast-syntax-highlighting
@@ -58,7 +60,7 @@ pasteinit() {
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Add Didder
-export PATH="/home/akira/didder/:$PATH"
+export PATH="$HOME/didder/:$PATH"
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
