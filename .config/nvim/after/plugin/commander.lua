@@ -24,5 +24,11 @@ commander.add({
         cmd = "<CMD>Telescope commander<CR>",
         keys = { "n", "<leader>er" },
         cat = "commander"
+    },
+    {
+        desc = "Enable/disable Copilot suggestions",
+        cmd = require("copilot.suggestion").toggle_auto_trigger,
+        keys = { "n", "<leader>ww" },
+        cat = "copilot"
     }
 })
