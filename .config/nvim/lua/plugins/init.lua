@@ -17,12 +17,6 @@ return {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     'jinh0/eyeliner.nvim',
     {
-        'm4xshen/autoclose.nvim',
-        config = function()
-            require("autoclose").setup()
-        end,
-    },
-    {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
