@@ -1,5 +1,7 @@
 -- NVim keybinds
 vim.g.mapleader = " " -- Space as leader key
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- NVim config
 vim.o.number = true         -- Show line number
