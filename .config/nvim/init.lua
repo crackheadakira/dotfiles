@@ -1,7 +1,9 @@
 -- NVim keybinds
-vim.g.mapleader = " " -- Space as leader key
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.g.mapleader = " "                                           -- Space as leader key
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true }) -- Easily move a line down in visual mode
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true }) -- Easily move a line up in visual mode
+vim.keymap.set("n", "<leader>w", ":w<CR>", { silent = true })   -- Easily save a file
+vim.keymap.set("n", "<leader>q", ":q<CR>", { silent = true })   -- Easily quit a file
 
 -- NVim config
 vim.o.number = true         -- Show line number
