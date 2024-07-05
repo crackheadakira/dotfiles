@@ -34,7 +34,6 @@ plugins=(
     zsh-nvm
     zsh-autosuggestions
 	fast-syntax-highlighting
-    zsh-autocomplete
 )
 
 znap source marlonrichert/zsh-autocomplete
