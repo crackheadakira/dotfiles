@@ -16,7 +16,7 @@ HISTFILE=~/.zsh_history
 zstyle ':zle:up-line-or-beginning-search' leave-cursor false
 zstyle ':zle:down-line-or-beginning-search' leave-cursor false
 
-bindkey '^[[B' down-line-or-search
+# bindkey '^[[B' down-line-or-search
 
 [[ -r ~/Repos/znap/znap.zsh ]] ||
     git clone --depth 1 -- \
@@ -25,11 +25,16 @@ source ~/Repos/znap/znap.zsh  # Start Znap
 
 znap install zdharma-continuum/fast-syntax-highlighting zsh-users/zsh-autosuggestions
 
+zle -N menu-search
+zle -N recent-paths
+
 plugins=(
 	git
+    sudo
+    zsh-nvm
+    zsh-autosuggestions
 	fast-syntax-highlighting
-	zsh-autosuggestions
-	sudo
+    zsh-autocomplete
 )
 
 znap source marlonrichert/zsh-autocomplete
@@ -64,10 +69,6 @@ pasteinit() {
 
 # Add Didder
 export PATH="$HOME/didder/:$PATH"
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
 export PNPM_HOME="/home/akira/.local/share/pnpm"
