@@ -5,28 +5,31 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+export ZSH="$HOME/.zsh"
+
 CASE_SENSITIVE="true"
-SAVEHIST=1000  # Save most-recent 1000 lines
+
+# Setup ZSH history
+HISTSIZE=10000
 HISTFILE=~/.zsh_history
+setopt HIST_IGNORE_DUPS  # Ignore duplicate commands in history
+setopt HIST_FIND_NO_DUPS # Don't show duplicates when searching history
+setopt HIST_SAVE_NO_DUPS # Don't save duplicate commands to history file
 
-# Run Znap
-if [[ -f ~/Repos/znap/znap.zsh ]]; then
-    source ~/Repos/znap/znap.zsh
-    znap source zdharma-continuum/fast-syntax-highlighting
-    znap source zsh-users/zsh-autosuggestions
-    znap source marlonrichert/zsh-autocomplete
-    znap source lukechilds/zsh-nvm
-fi
+source $ZSH/powerlevel10k/powerlevel10k.zsh-theme
+source $ZSH/fsh/fast-syntax-highlighting.plugin.zsh
+source $ZSH/zsh-as/zsh-autosuggestions.zsh
+source $ZSH/zsh-ac/zsh-autocomplete.plugin.zsh
 
-plugins=(git sudo)
-source $ZSH/oh-my-zsh.sh
+# Enable completion
+autoload -U compinit; compinit
+source ~/.completions.zsh 
 
 alias vim="nvim"
 alias vi="nvim"
 alias oldvim="vim"
 alias cat='bat -pp'
+alias l='ls -als'
 
 # Disable zsh-autocompletion on paste
 pasteinit() {
@@ -47,9 +50,6 @@ zstyle ':bracketed-paste-magic' paste-finish pastefinish
 zle -N menu-search
 zle -N recent-paths
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Add Didder
 export PATH="$HOME/didder/:$PATH"
 export PATH="/home/akira/.cache/.bun/bin:$PATH"
@@ -61,3 +61,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
