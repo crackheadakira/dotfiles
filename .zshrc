@@ -7,7 +7,6 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
-#ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 CASE_SENSITIVE="true"
 SAVEHIST=1000  # Save most-recent 1000 lines
@@ -68,6 +67,7 @@ pasteinit() {
 
 # Add Didder
 export PATH="$HOME/didder/:$PATH"
+export PATH="/home/akira/.cache/.bun/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/home/akira/.local/share/pnpm"
