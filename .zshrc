@@ -6,49 +6,27 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export ZSH="$HOME/.oh-my-zsh"
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
 CASE_SENSITIVE="true"
 SAVEHIST=1000  # Save most-recent 1000 lines
 HISTFILE=~/.zsh_history
 
-zstyle ':zle:up-line-or-beginning-search' leave-cursor false
-zstyle ':zle:down-line-or-beginning-search' leave-cursor false
+# Run Znap
+if [[ -f ~/Repos/znap/znap.zsh ]]; then
+    source ~/Repos/znap/znap.zsh
+    znap source zdharma-continuum/fast-syntax-highlighting
+    znap source zsh-users/zsh-autosuggestions
+    znap source marlonrichert/zsh-autocomplete
+    znap source lukechilds/zsh-nvm
+fi
 
-# bindkey '^[[B' down-line-or-search
-
-[[ -r ~/Repos/znap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
-source ~/Repos/znap/znap.zsh  # Start Znap
-
-znap install zdharma-continuum/fast-syntax-highlighting zsh-users/zsh-autosuggestions
-
-zle -N menu-search
-zle -N recent-paths
-
-plugins=(
-	git
-    sudo
-    zsh-nvm
-    zsh-autosuggestions
-	fast-syntax-highlighting
-)
-
-znap source marlonrichert/zsh-autocomplete
-
+plugins=(git sudo)
 source $ZSH/oh-my-zsh.sh
 
 alias vim="nvim"
 alias vi="nvim"
 alias oldvim="vim"
-
-# Syntax-highlighting alternative for cat
 alias cat='bat -pp'
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # Disable zsh-autocompletion on paste
 pasteinit() {
@@ -59,8 +37,15 @@ pasteinit() {
  pastefinish() {
    zle -N self-insert $OLD_SELF_INSERT
  }
- zstyle :bracketed-paste-magic paste-init pasteinit
- zstyle :bracketed-paste-magic paste-finish pastefinish
+
+zstyle ':zle:up-line-or-beginning-search' leave-cursor false
+zstyle ':zle:down-line-or-beginning-search' leave-cursor false
+
+zstyle ':bracketed-paste-magic' paste-init pasteinit
+zstyle ':bracketed-paste-magic' paste-finish pastefinish
+
+zle -N menu-search
+zle -N recent-paths
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
