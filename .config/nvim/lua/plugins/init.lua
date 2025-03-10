@@ -1,15 +1,5 @@
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        config = function()
-            require "catppuccin".setup {
-                flavour = "mocha"
-            }
-        end,
-    },
-    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim', lazy = true }
@@ -41,8 +31,8 @@ return {
         cmd = "LoveRun",
         opts = {},
         keys = {
-            { "<leader>v", desc = "LÖVE" },
-            { "<leader>vv", "<cmd>LoveRun<cr>", desc = "Run LÖVE" },
+            { "<leader>v",  desc = "LÖVE" },
+            { "<leader>vv", "<cmd>LoveRun<cr>",  desc = "Run LÖVE" },
             { "<leader>vs", "<cmd>LoveStop<cr>", desc = "Stop LÖVE" },
         },
     },
