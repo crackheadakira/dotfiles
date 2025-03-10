@@ -1,7 +1,7 @@
 export LOCAL_ZSH="$HOME/.zsh"
-export ZSH="$LOCAL_ZSH/omz"exp
+export ZSH="$LOCAL_ZSH/omz"
 
-ort PATH=$PATH:$HOME/.spicetify
+export PATH=$PATH:$HOME/.spicetify
 
 export PATH="$PATH:$HOME/.local/bin"
 
