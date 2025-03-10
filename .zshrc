@@ -5,9 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export LOCAL_ZSH="$HOME/.zsh"
-export ZSH="$LOCAL_ZSH/omz"
-
 CASE_SENSITIVE="true"
 
 # Setup ZSH history

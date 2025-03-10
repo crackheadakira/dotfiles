@@ -1,6 +1,8 @@
-export PATH=$PATH:$HOME/.spicetify
+export LOCAL_ZSH="$HOME/.zsh"
+export ZSH="$LOCAL_ZSH/omz"exp
 
-# Created by `pipx` on 2023-07-31 17:08:27
+ort PATH=$PATH:$HOME/.spicetify
+
 export PATH="$PATH:$HOME/.local/bin"
 
 export PATH="$PATH:$HOME/Documents/coding/AnnePro2-Tools/target/release/bin"
