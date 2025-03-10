@@ -5,7 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="$HOME/.zsh"
+export LOCAL_ZSH="$HOME/.zsh"
+export ZSH="$LOCAL_ZSH/omz"
 
 CASE_SENSITIVE="true"
 
@@ -16,14 +17,12 @@ setopt HIST_IGNORE_DUPS  # Ignore duplicate commands in history
 setopt HIST_FIND_NO_DUPS # Don't show duplicates when searching history
 setopt HIST_SAVE_NO_DUPS # Don't save duplicate commands to history file
 
-source $ZSH/powerlevel10k/powerlevel10k.zsh-theme
-source $ZSH/fsh/fast-syntax-highlighting.plugin.zsh
-source $ZSH/zsh-as/zsh-autosuggestions.zsh
-source $ZSH/zsh-ac/zsh-autocomplete.plugin.zsh
+source $LOCAL_ZSH/powerlevel10k/powerlevel10k.zsh-theme
+source $LOCAL_ZSH/fsh/fast-syntax-highlighting.plugin.zsh
+source $LOCAL_ZSH/zsh-as/zsh-autosuggestions.zsh
+source $LOCAL_ZSH/zsh-ac/zsh-autocomplete.plugin.zsh
 
-# Enable completion
-autoload -U compinit; compinit
-source ~/.completions.zsh 
+source $ZSH/oh-my-zsh.sh
 
 alias vim="nvim"
 alias vi="nvim"
